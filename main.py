@@ -85,7 +85,6 @@ def download_maybe(url):
             # print(url)
             driver.get(u)
             d = input(f"Download this wallpaper( url: {u} ) (Y/n)?: ")
-            print(f"\n\n\nuser choice: {d}\n\n\n")
             if len(d.strip()) == 0 or d.lower() == "y":
                 download_wallpaper(u)
             else:
