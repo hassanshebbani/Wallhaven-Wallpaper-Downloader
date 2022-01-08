@@ -1,12 +1,13 @@
+# Not for commercial use.
+
 Just a demo of python webscrapping using selenium.
 
 All rights reserved to their respective owners of wallhaven and the creators of the wallpapers.
 
-Not for commercial use.
+## Installation
 
-> Install the following packages first!
-
+```python
 pip install selenium
+
 pip install requests
-
-
+```
