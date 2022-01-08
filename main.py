@@ -2,6 +2,7 @@ from os import error, mkdir
 import os
 from selenium import webdriver
 import requests
+import time
 
 chrome_web_driver_path = "C:\Chrome_Driver\chromedriver.exe"
 already_downloaded = []
@@ -60,6 +61,8 @@ def download_wallpaper(u):
     if u in already_downloaded:
         print(f"Wallpaper at {u} already exists!")
     else:
+        print("Sleeping 10 seconds before downloading...")
+        time.sleep(10)
         r = requests.get(u)
         if r.status_code == 200:
             with open(f"wallpapers/{u.split('-')[-1]}", "wb") as wallpaper:
@@ -82,7 +85,6 @@ def download_maybe(url):
         page_url = f"{url}page={_}"
         num_of_images(page_url,page_num=_)
         for u in wallpaper_urls:
-            # print(url)
             driver.get(u)
             d = input(f"Download this wallpaper( url: {u} ) (Y/n)?: ")
             if len(d.strip()) == 0 or d.lower() == "y":
@@ -98,7 +100,6 @@ def download_all(url):
         page_url = f"{url}page={_}"
         num_of_images(page_url,page_num=_)
         for u in wallpaper_urls:
-            # print(url)
             download_wallpaper(u)
 
 
